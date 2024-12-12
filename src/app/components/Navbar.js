@@ -11,7 +11,7 @@ export default function Navbar() {
           <Link href="/" legacyBehavior>
             Home 
           </Link>
-          <Link href="src/pages/post-art">Post Art</Link>
+          <Link href="/post-art">Post Art</Link>
         </div>
       
     </nav>
