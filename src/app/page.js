@@ -36,6 +36,27 @@ const artData = [
     price: 700,
     image: "/images/the-scream.jphttps://smarthistory.org/wp-content/uploads/2021/12/Edvard_Munch_-_The_Scream_-_Google_Art_Project.jpeg",
   },
+  {
+    id: 5,
+    title: "The Scream",
+    description: "An expressionist masterpiece by Edvard Munch.",
+    price: 700,
+    image: "/images/the-scream.jphttps://smarthistory.org/wp-content/uploads/2021/12/Edvard_Munch_-_The_Scream_-_Google_Art_Project.jpeg",
+  },
+  {
+    id: 6,
+    title: "The Scream",
+    description: "An expressionist masterpiece by Edvard Munch.",
+    price: 700,
+    image: "/images/the-scream.jphttps://smarthistory.org/wp-content/uploads/2021/12/Edvard_Munch_-_The_Scream_-_Google_Art_Project.jpeg",
+  },
+  {
+    id: 7,
+    title: "The Scream",
+    description: "An expressionist masterpiece by Edvard Munch.",
+    price: 700,
+    image: "/images/the-scream.jphttps://smarthistory.org/wp-content/uploads/2021/12/Edvard_Munch_-_The_Scream_-_Google_Art_Project.jpeg",
+  },
 ];
 
 export default function Home() {
@@ -48,26 +69,27 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="bg-gray-100 ">
       
       
 
       {/* Hero Section */}
-      <header className="bg-gradient-to-r from-red-300 to-blue-400 text-black py-12 text-center">
+      <header className="bg-gradient-to-r from-red-300 to-blue-400 text-black pt-6 text-center mb-0">
         <h1 className="text-6xl font-bold text-black-500">Welcome to The Art Emporium</h1>
-        <p className="mt-4 text-2xl text-red font-bold">Explore and buy stunning artwork from talented artists.</p>
+        <p className="mt-4 text-2xl text-red-700 font-bold">Explore and buy stunning artwork from talented artists.</p>
         <br />
+        <hr></hr>
         <br />
-        <hr />
+        
       </header>
 
       <Navbar />
 
       {/* Add New Artwork Button */}
-      <div className="text-center mb-6 bg-gradient-to-r from-red-300 to-blue-400">
+      <div className="text-center mb-0 bg-gradient-to-r from-red-300 to-blue-400">
         <button
           onClick={() => setIsModalOpen(true)}
-          className="bg-yellow-400 text-black px-6 py-3 rounded-md hover:bg-yellow-500 mb-8 mt-6"
+          className=" text-2xl font-bold bg-red-600 text-white px-6 py-3 rounded-md hover:bg-red-700 mb-10 mt-6"
         >
           Post Your Art
         </button>
@@ -75,7 +97,7 @@ export default function Home() {
 
       {/* Art Listings */}
       <main className="p-6 bg-gradient-to-r from-red-300 to-blue-400 h-64 mt-0">
-        <h2 className="text-5xl text-black-900 font-bold mb-6">Available Artworks</h2>
+        <h2 className="text-5xl text-red-700 font-bold mb-6">Available Artworks</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-5">
           {arts.map((art) => (
             <ArtCard key={art.id} art={art} />

@@ -12,17 +12,18 @@ export default function About() {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      <Navbar />
+      
       <header
-  className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white text-center py-16 bg-cover bg-center"
+  className="bg-gradient-to-r from-red-300 to-blue-400 text-white text-center py-6 bg-cover bg-center"
   style={{ backgroundImage: "https://images.squarespace-cdn.com/content/v1/53ea55d2e4b02ced560ce44e/1409241495754-U34EOGETEF8PG37MFR8O/MainGalleryShot.jpeg" }}
 >
-  <h1 className="text-4xl md:text-6xl font-bold">The Art Emporium</h1>
-  <p className="mt-4 text-lg md:text-xl">
+  <h1 className="text-4xl md:text-6xl font-bold text-black">The Art Emporium</h1>
+  <p className="mt-4 text-lg md:text-xl text-red-600 font-bold">
     Celebrating creativity, individuality, and the power of art.
   </p>
 </header>
-
+<hr></hr>
+<Navbar />
       <main className="max-w-5xl mx-auto px-6 py-12 space-y-12">
         <section>
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Our Mission</h2>
@@ -40,7 +41,7 @@ export default function About() {
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800">What We Offer</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
             <div className="p-6 bg-white shadow-lg rounded-lg">
-              <h3 className="text-xl font-bold text-purple-700">For Artists</h3>
+              <h3 className="text-xl font-bold text-red-700">For Artists</h3>
               <ul className="list-disc list-inside text-gray-700 mt-4 space-y-2">
                 <li>A user-friendly platform to showcase your art to a global audience.</li>
                 <li>Tools to post, price, and describe your artwork effortlessly.</li>
@@ -48,7 +49,7 @@ export default function About() {
               </ul>
             </div>
             <div className="p-6 bg-white shadow-lg rounded-lg">
-              <h3 className="text-xl font-bold text-purple-700">For Art Lovers</h3>
+              <h3 className="text-xl font-bold text-red-700">For Art Lovers</h3>
               <ul className="list-disc list-inside text-gray-700 mt-4 space-y-2">
                 <li>A diverse collection of artworks, from paintings to sculptures.</li>
                 <li>Seamless browsing with detailed descriptions and images.</li>
@@ -80,7 +81,7 @@ export default function About() {
           </p>
           <button
             onClick={handleExploreNow}
-            className="mt-6 px-6 py-3 bg-purple-500 text-white font-bold rounded-lg shadow-lg hover:bg-purple-600 transition duration-300"
+            className="mt-6 px-6 py-3 bg-red-500 text-white font-bold rounded-lg shadow-lg hover:bg-purple-600 transition duration-300"
           >
             Explore Now
           </button>

@@ -45,18 +45,18 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="p-4 bg-gradient-to-r from-red-300 to-blue-400 text-white">
+    <nav className="p-3 bg-gradient-to-r from-red-300 to-blue-400 text-white">
     <div className="flex flex-col items-center space-y-4">
       {/* Home and About Buttons */}
       <button
         onClick={navigateToHome}
-        className="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-600"
+        className=" text-xl font-bold text-white  py-1 px-4 rounded-md hover:bg-gradient-to-r from-red-300 to-blue-400 "
       >
         Home
       </button>
       <button
         onClick={() => (window.location.href = "/about")}
-        className="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-600"
+        className="bg-transparent text-xl font-bold text-white py-1 px-4 rounded-md hover:bg-gradient-to-r from-red-300 to-blue-400"
       >
         About
       </button>
@@ -67,10 +67,11 @@ export default function Navbar() {
       {!user ? (
         <button
           onClick={handleGoogleLogin}
-          className="bg-green-500 text-white py-2 px-6 rounded-md hover:bg-green-600"
+          className="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-green-600 font-bold"
         >
           Login with Google
         </button>
+      
       ) : (
         <div>
           <span className="mr-4">Hello, {user.displayName}</span>
@@ -82,6 +83,8 @@ export default function Navbar() {
           </button>
         </div>
       )}
+      
+      
     </div>
   </nav>
   
