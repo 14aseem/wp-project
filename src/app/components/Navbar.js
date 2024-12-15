@@ -11,9 +11,11 @@ export default function Navbar() {
           <Link href="/" legacyBehavior>
             Home 
           </Link>
-          <Link href="/post-art">Post Art</Link>
+          <Link href="/about" legacyBehavior>
+            About 
+          </Link>
+         
         </div>
-      
     </nav>
     
   );
