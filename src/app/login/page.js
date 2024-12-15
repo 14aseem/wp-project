@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { auth } from "../firebase"; // Adjust path based on your project structure
+import { auth } from "firebase/auth"; // Adjust path based on your project structure
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
