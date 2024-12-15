@@ -13,12 +13,15 @@ export default function About() {
   return (
     <div className="bg-gray-50 min-h-screen">
       <Navbar />
-      <header className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white text-center py-16">
-        <h1 className="text-4xl md:text-6xl font-bold">Welcome to The Art Emporium</h1>
-        <p className="mt-4 text-lg md:text-xl">
-          Celebrating creativity, individuality, and the power of art.
-        </p>
-      </header>
+      <header
+  className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white text-center py-16 bg-cover bg-center"
+  style={{ backgroundImage: "https://images.squarespace-cdn.com/content/v1/53ea55d2e4b02ced560ce44e/1409241495754-U34EOGETEF8PG37MFR8O/MainGalleryShot.jpeg" }}
+>
+  <h1 className="text-4xl md:text-6xl font-bold">The Art Emporium</h1>
+  <p className="mt-4 text-lg md:text-xl">
+    Celebrating creativity, individuality, and the power of art.
+  </p>
+</header>
 
       <main className="max-w-5xl mx-auto px-6 py-12 space-y-12">
         <section>

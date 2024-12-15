@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import ArtCard from "./components/ArtCard";
 import Navbar from "./components/Navbar";
+import Login from "./components/Login";
 import Link from "next/link"; // Use Next.js Link to navigate between pages
 
 // Mock data for art listings
@@ -48,7 +49,8 @@ export default function Home() {
 
   return (
     <div className="bg-gray-100 min-h-screen">
-      <Navbar />
+      
+      
 
       {/* Hero Section */}
       <header className="bg-gradient-to-r from-red-300 to-blue-400 text-black py-12 text-center">
@@ -59,11 +61,13 @@ export default function Home() {
         <hr />
       </header>
 
+      <Navbar />
+
       {/* Add New Artwork Button */}
       <div className="text-center mb-6 bg-gradient-to-r from-red-300 to-blue-400">
         <button
           onClick={() => setIsModalOpen(true)}
-          className="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 mb-8"
+          className="bg-yellow-400 text-black px-6 py-3 rounded-md hover:bg-yellow-500 mb-8 mt-6"
         >
           Post Your Art
         </button>
