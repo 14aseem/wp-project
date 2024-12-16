@@ -45,29 +45,43 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="p-3 bg-gradient-to-r from-red-300 to-blue-400 text-white">
+    <nav className="py-2 bg-gradient-to-r from-red-300 to-blue-400 text-white">
     <div className="flex flex-col items-center space-y-4">
       {/* Home and About Buttons */}
       <button
         onClick={navigateToHome}
-        className=" text-xl font-bold text-white  py-1 px-4 rounded-md hover:bg-gradient-to-r from-red-300 to-blue-400 "
+        className=" text-xl font-black text-white  py-1 px-4 rounded-md hover:bg-gradient-to-r from-red-300 to-blue-400 "
       >
         Home
       </button>
       <button
         onClick={() => (window.location.href = "/about")}
-        className="bg-transparent text-xl font-bold text-white py-1 px-4 rounded-md hover:bg-gradient-to-r from-red-300 to-blue-400"
+        className="bg-transparent text-xl font-black text-white py-1 px-4 rounded-md hover:bg-gradient-to-r from-red-300 to-blue-400"
       >
         About
       </button>
+      <button
+        onClick={() => (window.location.href = "/contact")}
+        className="bg-transparent text-xl font-black text-white py-1 px-4 rounded-md hover:bg-gradient-to-r from-red-300 to-blue-400"
+      >
+        Contact Us
+      </button>
+      <button
+        onClick={() => (window.location.href = "/artists")}
+        className="bg-transparent text-xl font-black text-white py-1 px-4 rounded-md hover:bg-gradient-to-r from-red-300 to-blue-400"
+      >
+        Artists
+      </button>
     </div>
+
+    
   
     {/* Conditional Rendering for Login and User Info */}
     <div className="mt-4 text-center">
       {!user ? (
         <button
           onClick={handleGoogleLogin}
-          className="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-green-600 font-bold"
+          className="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-green-600 font-black"
         >
           Login with Google
         </button>

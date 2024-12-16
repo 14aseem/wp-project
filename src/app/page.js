@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import ArtCard from "./components/ArtCard";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
+import Footer from "./components/Footer";
 import Link from "next/link"; // Use Next.js Link to navigate between pages
 
 // Mock data for art listings
@@ -69,18 +70,14 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-gray-100 ">
-      
-      
-
+    <div className="min-h-screen flex flex-col bg-gray-100">
       {/* Hero Section */}
       <header className="bg-gradient-to-r from-red-300 to-blue-400 text-black pt-6 text-center mb-0">
-        <h1 className="text-6xl font-bold text-black-500">Welcome to The Art Emporium</h1>
-        <p className="mt-4 text-2xl text-red-700 font-bold">Explore and buy stunning artwork from talented artists.</p>
+        <h1 className="text-5xl font-black text-black-500">Welcome to The Art Emporium</h1>
+        <p className="mt-4 text-xl text-purple-900 font-bold">Explore and buy stunning artwork from talented artists.</p>
         <br />
         <hr></hr>
         <br />
-        
       </header>
 
       <Navbar />
@@ -89,15 +86,15 @@ export default function Home() {
       <div className="text-center mb-0 bg-gradient-to-r from-red-300 to-blue-400">
         <button
           onClick={() => setIsModalOpen(true)}
-          className=" text-2xl font-bold bg-red-600 text-white px-6 py-3 rounded-md hover:bg-red-700 mb-10 mt-6"
+          className=" text-2xl font-black bg-purple-600 text-white px-6 py-3 rounded-md hover:bg-purple-700 mb-10 mt-6"
         >
           Post Your Art
         </button>
       </div>
 
       {/* Art Listings */}
-      <main className="p-6 bg-gradient-to-r from-red-300 to-blue-400 h-64 mt-0">
-        <h2 className="text-5xl text-red-700 font-bold mb-6">Available Artworks</h2>
+      <main className="p-6 bg-gradient-to-r from-red-300 to-blue-400 h-auto mt-0 flex-1">
+        <h2 className="text-5xl text-purple-900 font-black mb-6">Available Artworks</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-5">
           {arts.map((art) => (
             <ArtCard key={art.id} art={art} />
@@ -120,6 +117,9 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
