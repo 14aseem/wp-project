@@ -73,7 +73,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-gray-100">
       {/* Hero Section */}
       <header className="bg-gradient-to-r from-red-300 to-blue-400 text-black pt-6 text-center mb-0">
-        <h1 className="text-5xl font-black text-black-500">Welcome to The Art Emporium</h1>
+        <h1 className="text-5xl font-black text-black-500">The Art Emporium</h1>
         <p className="mt-4 text-xl text-purple-900 font-bold">Explore and buy stunning artwork from talented artists.</p>
         <br />
         <hr></hr>
