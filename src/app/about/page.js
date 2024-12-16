@@ -11,6 +11,11 @@ export default function About() {
     router.push("/"); // Navigate to the Home page
   };
 
+  const handleFeedback=()=>{
+    window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSesgTrgzGg-BbeDBk64EDHmZU2dLKCXG8AxkrKDmdpRXjCtzA/viewform";
+
+  }
+
   return (
     <div className="bg-gray-50 min-h-screen">
       
@@ -85,7 +90,13 @@ export default function About() {
             className="mt-6 px-6 py-3 bg-purple-500 text-white font-bold rounded-lg shadow-lg hover:bg-purple-600 transition duration-300"
           >
             Explore Now
-          </button>
+          </button>`
+          <button
+            onClick={handleFeedback}
+            className="mt-6 ml-3 px-6 py-3 bg-purple-500 text-white font-bold rounded-lg shadow-lg hover:bg-purple-600 transition duration-300"
+          >
+            Drop us a Feedback
+                </button>
         </section>
       </main>
     <Footer/>

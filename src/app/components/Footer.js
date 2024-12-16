@@ -55,16 +55,16 @@ export default function Footer() {
           </p>
           <p className="text-sm mb-4">Phone: +91 1234567890</p>
           <div className="flex space-x-4">
-            <a href="#" className="hover:text-gray-300">
+            <a href="https://www.facebook.com/" className="hover:text-gray-300">
               <FaFacebookF />
             </a>
-            <a href="#" className="hover:text-gray-300">
+            <a href="https://x.com/?lang=en" className="hover:text-gray-300">
               <FaTwitter />
             </a>
-            <a href="#" className="hover:text-gray-300">
+            <a href="https://www.instagram.com/" className="hover:text-gray-300">
               <FaInstagram />
             </a>
-            <a href="#" className="hover:text-gray-300">
+            <a href="https://in.linkedin.com/" className="hover:text-gray-300">
               <FaLinkedin />
             </a>
           </div>
@@ -74,7 +74,7 @@ export default function Footer() {
       {/* Copyright Section */}
       <div className="mt-8 text-center text-sm border-t border-black-500 pt-4">
         <p>&copy; {new Date().getFullYear()} Art Emporium. All rights reserved.</p>
-        <p className="text-xs mt-1">Made with ❤️ by 7cgcoonts.</p>
+        <p className="text-xs mt-1">Made with ❤️ by Aseem,Abraar,Nithil.</p>
       </div>
     </footer>
   );
