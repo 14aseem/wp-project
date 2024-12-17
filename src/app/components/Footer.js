@@ -38,6 +38,11 @@ export default function Footer() {
                 Artists
               </a>
             </li>
+            <li>
+              <a href="/forum" className="hover:underline">
+                Forum
+              </a>
+            </li>
           </ul>
         </div>
 

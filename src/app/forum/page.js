@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { db } from "../firebase";
+import Footer from "../components/Footer";
 import {
   collection,
   addDoc,
@@ -139,6 +140,7 @@ export default function ForumPage() {
         </div>
       ))}
     </div>
+    <Footer/>
     </>
   );
 }

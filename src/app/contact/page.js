@@ -3,6 +3,7 @@ import { useState } from "react";
 import { db } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import Navbar from "../components/Navbar"
+import Footer from "../components/Footer";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -40,10 +41,10 @@ export default function ContactForm() {
 
   return (
     <>
-    <header
+<header
   className="bg-gradient-to-r from-red-300 to-blue-400 text-white text-center py-6 bg-cover bg-center"
   style={{ backgroundImage: "https://images.squarespace-cdn.com/content/v1/53ea55d2e4b02ced560ce44e/1409241495754-U34EOGETEF8PG37MFR8O/MainGalleryShot.jpeg" }}
->
+>    
   <h1 className="text-4xl md:text-6xl font-black text-black">Contact</h1>
   <p className="mt-4 text-lg md:text-xl text-purple-900 font-bold">
     Celebrating creativity, individuality, and the power of art.
@@ -114,6 +115,7 @@ export default function ContactForm() {
         </form>
       </div>
     </div>
+          <Footer/>
     </>
   );
 }

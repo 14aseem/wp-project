@@ -1,8 +1,9 @@
-"use client";
+import { db } from "../firebase"; // Adjust path as needed
+import { collection, addDoc, onSnapshot } from "firebase/firestore";
+import { useEffect, useState } from "react";
 
-import { useState } from "react";
-
-export default function PostArt({ setArts }) {
+export default function PostArt() {
+  const [arts, setArts] = useState([]); // To store artworks fetched from Firestore
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -12,55 +13,76 @@ export default function PostArt({ setArts }) {
   const [imagePreview, setImagePreview] = useState("");
   const [submissionStatus, setSubmissionStatus] = useState(null);
 
+  // Fetch arts from Firestore on page load
+  useEffect(() => {
+    const unsubscribe = onSnapshot(collection(db, "artworks"), (snapshot) => {
+      const fetchedArts = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      console.log("Fetched arts:", fetchedArts); // Log fetched data
+      setArts(fetchedArts);
+    }, (error) => {
+      console.error("Error fetching arts: ", error);
+    });
+    return () => unsubscribe();
+  }, []);
+  
+   
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-
     if (name === "image") {
-      setImagePreview(value); // Update the image preview when the image URL is entered
+      setImagePreview(value);
     }
   };
 
-  const handleSubmit = (e) => {
+  // Submit data to Firestore
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic form validation
     if (!formData.title || !formData.description || !formData.price || !formData.image) {
       alert("Please fill in all fields.");
       return;
     }
 
-    // Add the new artwork to the existing artworks list
-    setArts((prevArts) => [
-      ...prevArts,
-      { ...formData, id: prevArts.length + 1 }, // Ensure the new art has a unique ID
-    ]);
+    try {
+      await addDoc(collection(db, "artworks"), {
+        title: formData.title,
+        description: formData.description,
+        price: formData.price,
+        image: formData.image,
+        createdAt: new Date(),
+      });
 
-    // Show a success message
-    setSubmissionStatus("Art submitted successfully!");
+      setSubmissionStatus("Art submitted successfully!");
 
-    // Reset form fields
-    setFormData({
-      title: "",
-      description: "",
-      price: "",
-      image: "",
-    });
-    setImagePreview(""); // Reset image preview
+      // Reset form fields
+      setFormData({
+        title: "",
+        description: "",
+        price: "",
+        image: "",
+      });
+      setImagePreview("");
+    } catch (error) {
+      console.error("Error submitting art: ", error);
+      setSubmissionStatus("Failed to submit art. Try again.");
+    }
   };
 
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-lg">
       <h1 className="text-2xl font-bold mb-4">Post Your Art</h1>
 
-      {/* Show submission status */}
       {submissionStatus && (
         <div className="bg-green-100 text-green-800 p-3 rounded-md mb-4">
           {submissionStatus}
         </div>
       )}
 
-      {/* Form for submitting artwork */}
+      {/* Form for posting art */}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700">Title</label>
@@ -81,10 +103,10 @@ export default function PostArt({ setArts }) {
             onChange={handleChange}
             className="w-full p-2 border border-gray-300 rounded-md"
             required
-          ></textarea>
+          />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">Price (USD)</label>
+          <label className="block text-sm font-medium text-gray-700">Price</label>
           <input
             type="number"
             name="price"
@@ -105,13 +127,11 @@ export default function PostArt({ setArts }) {
             required
           />
           {imagePreview && (
-            <div className="mt-4">
-              <img
-                src={imagePreview}
-                alt="Preview"
-                className="w-32 h-32 object-cover rounded-md"
-              />
-            </div>
+            <img
+              src={imagePreview}
+              alt="Preview"
+              className="w-32 h-32 mt-4 object-cover rounded-md"
+            />
           )}
         </div>
         <button
@@ -121,6 +141,28 @@ export default function PostArt({ setArts }) {
           Submit
         </button>
       </form>
+
+      {/* Display Submitted Art */}
+      <h2 className="text-xl font-bold mt-8 mb-4">Submitted Artworks</h2>
+      <div className="space-y-4">
+        {arts.map((art) => (
+          <div
+            key={art.id}
+            className="p-4 bg-gray-100 rounded-md shadow-sm flex items-center space-x-4"
+          >
+            <img
+              src={art.image}
+              alt={art.title}
+              className="w-24 h-24 object-cover rounded-md"
+            />
+            <div>
+              <h3 className="text-lg font-semibold">{art.title}</h3>
+              <p className="text-gray-600">{art.description}</p>
+              <p className="text-blue-500 font-medium">${art.price}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function EventsPage() {
 
@@ -43,7 +44,7 @@ export default function EventsPage() {
               <button className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600" onClick={() => window.open("https://docs.google.com/forms/d/1dm36fD874lR91JM-8535gigU7fPxH9C2AeOVPL-GK7c/edit")}>
                 Register Now
               </button>
-              <button className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 ml-5">
+              <button className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 ml-5" onClick={() => (window.location.href = "../events/artexhibition")}>
                 View Details
               </button>
             </div>
@@ -66,7 +67,7 @@ export default function EventsPage() {
                 A showcase of bold and modern art styles that inspire creativity
                 and individuality.
               </p>
-              <button className="text-blue-600 font-semibold hover:underline">
+              <button className="text-blue-600 font-semibold hover:underline" onClick={() => (window.location.href = "../events/modernart")} >
                 View Details
               </button>
             </div>
@@ -83,7 +84,7 @@ export default function EventsPage() {
                 A hands-on workshop exploring the art of sculpting with clay and
                 stone.
               </p>
-              <button className="text-blue-600 font-semibold hover:underline">
+              <button className="text-blue-600 font-semibold hover:underline" onClick={() => (window.location.href = "../events/sculpting")}>
                 View Details
               </button>
 
@@ -102,13 +103,14 @@ export default function EventsPage() {
                 Connect with fellow portrait artists and share techniques and
                 styles.
               </p>
-              <button className="text-blue-600 font-semibold hover:underline">
+              <button className="text-blue-600 font-semibold hover:underline" onClick={() => (window.location.href = "../events/modernart")} >
                 View Details
               </button>
             </div>
           </div>
         </section>
       </div>
+      <Footer/>
     </>
   );
 }
