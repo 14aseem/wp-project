@@ -72,6 +72,18 @@ export default function Navbar() {
       >
         Artists
       </button>
+      <button
+        onClick={() => (window.location.href = "/events")}
+        className="bg-transparent text-xl font-black text-white py-1 px-4 rounded-md hover:bg-gradient-to-r from-red-300 to-blue-400"
+      >
+        Events
+      </button>
+      <button
+        onClick={() => (window.location.href = "/forum")}
+        className="bg-transparent text-xl font-black text-white py-1 px-4 rounded-md hover:bg-gradient-to-r from-red-300 to-blue-400"
+      >
+        Blog
+      </button>
     </div>
 
     
