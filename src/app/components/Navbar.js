@@ -41,7 +41,7 @@ export default function Navbar() {
   return (
     <nav className="py-2 bg-gradient-to-r from-red-300 to-blue-400 text-white">
       {/* Flexbox to align buttons horizontally */}
-      <div className="flex flex-row items-center justify-center space-x-6">
+      <div className="flex flex-row items-center justify-center space-x-0">
         <button
           onClick={navigateToHome}
           className="text-xl font-black py-1 px-4 rounded-md hover:bg-white hover:text-black"
