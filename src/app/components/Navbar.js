@@ -1,119 +1,87 @@
-'use client';
-
+"use client";
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation"; // Use next/navigation for the new app directory
-import { auth, provider, signInWithPopup } from "../firebase"; // Import Firebase functions
-import { signOut } from "firebase/auth"; // Firebase sign-out function
+import { useRouter } from "next/navigation";
+import { auth, provider, signInWithPopup } from "../firebase";
+import { signOut } from "firebase/auth";
 
 export default function Navbar() {
-  const [user, setUser] = useState(null); // Track user login state
-  const [isClient, setIsClient] = useState(false); // Track whether component is mounted
+  const [user, setUser] = useState(null);
+  const [isClient, setIsClient] = useState(false);
 
-  const router = useRouter(); // Initialize router from next/navigation
+  const router = useRouter();
 
-  // Function to handle Google sign-in
   const handleGoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
-      setUser(user); // Store user details on successful login
+      setUser(user);
     } catch (error) {
       console.error("Error during Google sign-in: ", error);
     }
   };
 
-  // Function to handle sign-out
   const handleSignOut = () => {
     signOut(auth)
-      .then(() => setUser(null)) // Reset user state after sign-out
+      .then(() => setUser(null))
       .catch((error) => console.error("Error signing out: ", error));
   };
 
-  // Navigate to home page
   const navigateToHome = () => {
-    router.push('/'); // Navigate to home page
+    router.push("/");
   };
 
-  // Client-side check: only use router after component is mounted
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  // Don't render router-related components until client-side
   if (!isClient) {
-    return null; // Or a loading spinner can be shown here
+    return null;
   }
 
   return (
     <nav className="py-2 bg-gradient-to-r from-red-300 to-blue-400 text-white">
-    <div className="flex flex-col items-center space-y-4">
-      {/* Home and About Buttons */}
-      <button
-        onClick={navigateToHome}
-        className=" text-xl font-black text-white  py-1 px-4 rounded-md hover:bg-gradient-to-r from-red-300 to-blue-400 "
-      >
-        Home
-      </button>
-      <button
-        onClick={() => (window.location.href = "/about")}
-        className="bg-transparent text-xl font-black text-white py-1 px-4 rounded-md hover:bg-gradient-to-r from-red-300 to-blue-400"
-      >
-        About
-      </button>
-      <button
-        onClick={() => (window.location.href = "/contact")}
-        className="bg-transparent text-xl font-black text-white py-1 px-4 rounded-md hover:bg-gradient-to-r from-red-300 to-blue-400"
-      >
-        Contact Us
-      </button>
-      <button
-        onClick={() => (window.location.href = "/artists")}
-        className="bg-transparent text-xl font-black text-white py-1 px-4 rounded-md hover:bg-gradient-to-r from-red-300 to-blue-400"
-      >
-        Artists
-      </button>
-      <button
-        onClick={() => (window.location.href = "/events")}
-        className="bg-transparent text-xl font-black text-white py-1 px-4 rounded-md hover:bg-gradient-to-r from-red-300 to-blue-400"
-      >
-        Events
-      </button>
-      <button
-        onClick={() => (window.location.href = "/forum")}
-        className="bg-transparent text-xl font-black text-white py-1 px-4 rounded-md hover:bg-gradient-to-r from-red-300 to-blue-400"
-      >
-        Blog
-      </button>
-    </div>
-
-    
-  
-    {/* Conditional Rendering for Login and User Info */}
-    <div className="mt-4 text-center">
-      {!user ? (
+      {/* Flexbox to align buttons horizontally */}
+      <div className="flex flex-row items-center justify-center space-x-6">
         <button
-          onClick={handleGoogleLogin}
-          className="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-green-600 font-black"
+          onClick={navigateToHome}
+          className="text-xl font-black py-1 px-4 rounded-md hover:bg-white hover:text-black"
         >
-          Login with Google
+          Home
         </button>
-      
-      ) : (
-        <div>
-          <span className="mr-4">Hello, {user.displayName}</span>
-          <button
-            onClick={handleSignOut}
-            className="bg-red-500 text-white py-2 px-6 rounded-md hover:bg-red-600"
-          >
-            Sign Out
-          </button>
-        </div>
-      )}
-      
-      
-    </div>
-  </nav>
-  
+        <button
+          onClick={() => (window.location.href = "/about")}
+          className="text-xl font-black py-1 px-4 rounded-md hover:bg-white hover:text-black"
+        >
+          About
+        </button>
+        <button
+          onClick={() => (window.location.href = "/contact")}
+          className="text-xl font-black py-1 px-4 rounded-md hover:bg-white hover:text-black"
+        >
+          Contact Us
+        </button>
+        <button
+          onClick={() => (window.location.href = "/artists")}
+          className="text-xl font-black py-1 px-4 rounded-md hover:bg-white hover:text-black"
+        >
+          Artists
+        </button>
+        <button
+          onClick={() => (window.location.href = "/events")}
+          className="text-xl font-black py-1 px-4 rounded-md hover:bg-white hover:text-black"
+        >
+          Events
+        </button>
+        <button
+          onClick={() => (window.location.href = "/forum")}
+          className="text-xl font-black py-1 px-4 rounded-md hover:bg-white hover:text-black"
+        >
+          Blog
+        </button>
+      </div>
 
+      {/* Conditional Rendering for Login and User Info */}
+      
+    </nav>
   );
 }

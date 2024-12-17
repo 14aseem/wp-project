@@ -4,7 +4,7 @@ export default function ArtCard({ art,user }) {
         <img
           src={art.image}
           alt={art.title}
-          className="w-40 h-50 object-cover rounded-md text-center"
+          className="w-60 h-30 object-cover rounded-md text-center"
         />
         <h2 className=" text-2xl text-black font-bold mt-5">{art.title}</h2>
         <p className=" text-purple-800 font-bold mt-2 ">{art.description}</p>

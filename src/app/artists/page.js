@@ -7,33 +7,28 @@ const artistData = [
   {
     id: 1,
     name: "Vincent van Gogh",
-    profilePicture: "https://www.biography.com/.image/t_share/MTQ1MDE3NjE2NzQ0NzI3NzEw/vincent-van-gogh.jpg",
+    profilePicture: "https://cdn.britannica.com/36/69636-050-81A93193/Self-Portrait-artist-panel-board-Vincent-van-Gogh-1887.jpg",
     description: "Dutch Post-Impressionist painter, known for his bold colors and emotional impact.",
   },
   {
     id: 2,
     name: "Leonardo da Vinci",
-    profilePicture: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Leonardo_da_Vinci.jpg",
+    profilePicture: "https://hips.hearstapps.com/hmg-prod/images/portrait-of-leonardo-da-vinci-1452-1519-getty.jpg",
     description: "Italian polymath of the Renaissance, known for 'Mona Lisa' and 'The Last Supper'.",
   },
   {
     id: 3,
     name: "Pablo Picasso",
-    profilePicture: "https://upload.wikimedia.org/wikipedia/commons/3/35/Pablo_Picasso_1937.jpg",
+    profilePicture: "https://upload.wikimedia.org/wikipedia/commons/a/a7/Portrait_de_Picasso%2C_1908_%28background_retouched%29.jpg",
     description: "Spanish painter, sculptor, printmaker, and one of the most influential artists of the 20th century.",
   },
   {
     id: 4,
     name: "Frida Kahlo",
-    profilePicture: "https://upload.wikimedia.org/wikipedia/commons/0/05/Frida_Kahlo_1932.jpg",
+    profilePicture: "https://cdn.britannica.com/75/190175-050-DF798A2E/Self-portrait-oil-canvas-Thorn-Necklace-Hummingbird-Frida.jpg",
     description: "Mexican artist known for her unique self-portraits and works inspired by nature and Mexican culture.",
   },
-  {
-    id: 5,
-    name: "Claude Monet",
-    profilePicture: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Claude_Monet_1899.jpg",
-    description: "French painter, a founder of Impressionism, and is famous for his series of water lilies paintings.",
-  },
+ 
 ];
 
 export default function ArtistsPage() {
@@ -54,7 +49,7 @@ export default function ArtistsPage() {
               <img
                 src={artist.profilePicture}
                 alt={artist.name}
-                className="w-full h-56 object-cover"
+                className="w-full h-30 object-cover"
               />
               <div className="p-4">
                 <h3 className="text-xl font-bold text-gray-800">{artist.name}</h3>

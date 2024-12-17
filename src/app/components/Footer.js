@@ -39,8 +39,13 @@ export default function Footer() {
               </a>
             </li>
             <li>
+              <a href="/events" className="hover:underline">
+                Events
+              </a>
+            </li>
+            <li>
               <a href="/forum" className="hover:underline">
-                Forum
+                Blogs
               </a>
             </li>
           </ul>
